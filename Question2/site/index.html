@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal webpage for chenle.tian, a CSI205TC student.">
+  <title>chenle.tian | Student Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="chenle.tian home">chenle<span>.</span>tian</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+      <div id="site-menu" class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">CSI205TC student · Networking &amp; distributed computing</p>
+        <h1 id="hero-title">Hello, I’m <span>chenle.tian</span>.</h1>
+        <p class="lede">I am a student learning how software, networks, and people connect. This page is a small, honest record of what I am building and learning.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#projects">View my work</a>
+          <a class="button secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Current focus">
+        <div class="status-dot"></div>
+        <p class="card-label">CURRENT FOCUS</p>
+        <h2>Learning by making</h2>
+        <p>Exploring reliable communication, clear interfaces, and practical experiments.</p>
+        <div class="card-line"><span>01</span><span>Build · Measure · Improve</span></div>
+      </div>
+    </section>
+
+    <section id="about" class="section container" aria-labelledby="about-title">
+      <div class="section-heading"><p class="eyebrow">01 / About</p><h2 id="about-title">A student with questions.</h2></div>
+      <div class="about-grid">
+        <p class="large-copy">I am <strong>chenle.tian</strong>, a CSI205TC student interested in the systems behind everyday digital experiences. I enjoy turning a question into a small experiment, then explaining what the evidence shows.</p>
+        <div class="note"><p class="note-title">Editable profile note</p><p>Replace this paragraph with your own biography, location, course, or career goal before submission. Keep the wording personal and accurate.</p></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section tinted" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-heading"><p class="eyebrow">02 / Skills &amp; interests</p><h2 id="skills-title">Curious across the stack.</h2></div>
+        <div class="skills-grid">
+          <article class="skill-card"><span class="skill-number">01</span><h3>Web foundations</h3><p>HTML, responsive CSS, accessible structure, and a little JavaScript.</p></article>
+          <article class="skill-card"><span class="skill-number">02</span><h3>Networks</h3><p>Learning to observe DNS, TCP, HTTPS, latency, and routes with evidence.</p></article>
+          <article class="skill-card"><span class="skill-number">03</span><h3>Problem solving</h3><p>Breaking complex tasks into small tests and documenting the result clearly.</p></article>
+        </div>
+        <div class="tag-list" aria-label="Interests"><span>Distributed systems</span><span>UI design</span><span>Photography</span><span>Open source</span></div>
+        <p class="small-note">Editable interests: replace the tags above with your real interests.</p>
+      </div>
+    </section>
+
+    <section id="projects" class="section container" aria-labelledby="projects-title">
+      <div class="section-heading"><p class="eyebrow">03 / Selected work</p><h2 id="projects-title">Small projects, real lessons.</h2></div>
+      <div class="projects-grid">
+        <article class="project-card featured"><div class="project-top"><span class="project-type">Coursework</span><span class="project-index">01</span></div><h3>Personal webpage &amp; network analysis</h3><p>A GitHub Pages site examined through DNS, latency, routing, browser tools, and Wireshark.</p><div class="project-footer"><span>HTML · CSS · JS</span><a href="https://github.com/chenletian718/chenletian718.github.io" target="_blank" rel="noreferrer">Repository ↗</a></div></article>
+        <article class="project-card"><div class="project-top"><span class="project-type">Placeholder</span><span class="project-index">02</span></div><h3>Your next project</h3><p>Replace this card with a project you have completed. Explain the problem, your contribution, and one result.</p><div class="project-footer"><span>EDIT THIS CARD</span><a href="#contact">Ask me ↗</a></div></article>
+        <article class="project-card"><div class="project-top"><span class="project-type">Placeholder</span><span class="project-index">03</span></div><h3>Your next experiment</h3><p>Use this space for a lab, hobby, or collaboration that shows how you learn.</p><div class="project-footer"><span>EDIT THIS CARD</span><a href="#contact">Say hello ↗</a></div></article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <div class="container contact-inner"><div><p class="eyebrow">04 / Contact</p><h2 id="contact-title">Let’s compare notes.</h2><p>For collaboration, feedback, or a conversation about technology, send a message.</p></div><a class="button light" href="mailto:your.email@example.com">your.email@example.com ↗</a></div>
+    </section>
+  </main>
+
+  <footer class="footer container"><p>© <span id="year">2026</span> chenle.tian. Built with HTML, CSS, and JavaScript.</p><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>

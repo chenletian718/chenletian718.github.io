@@ -1,0 +1,21 @@
+CSI205TC Question 2 — Windows commands
+=======================================
+
+Run these in PowerShell after the GitHub Pages URL is live. Replace the URL only if GitHub shows a different final URL.
+
+$site = "https://chenletian718.github.io"
+Resolve-DnsName chenletian718.github.io | Tee-Object Question2/network/nslookup.txt
+nslookup chenletian718.github.io | Tee-Object Question2/network/nslookup-classic.txt
+ping chenletian718.github.io -n 20 | Tee-Object Question2/network/ping.txt
+tracert -d chenletian718.github.io | Tee-Object Question2/network/tracert.txt
+curl.exe -I $site | Tee-Object Question2/network/https-headers.txt
+
+Record the date, time, network type (Wi-Fi or Ethernet), and whether a VPN was enabled. Do not replace timeouts with invented values; retain them and explain them in the report.
+
+Suggested screenshots (save in Question2/network/screenshots/):
+1. The deployed page in a browser, with the address bar visible.
+2. nslookup / Resolve-DnsName output showing the domain and returned address(es).
+3. The complete ping output, including packet loss and average time.
+4. The complete tracert output, including any timed-out hops.
+5. Browser DevTools Network tab showing the document, CSS, JavaScript, status, and timing.
+6. Wireshark packet list plus one expanded DNS packet and one expanded TCP/TLS packet.

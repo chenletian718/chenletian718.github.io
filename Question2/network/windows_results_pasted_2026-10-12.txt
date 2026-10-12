@@ -1,0 +1,27 @@
+Windows observations pasted by the student on 2026-10-12
+=========================================================
+
+DNS server: dns.google (8.8.8.8)
+Domain: chenletian718.github.io
+DNS addresses returned:
+  IPv6 2606:50c0:8002::153
+  IPv6 2606:50c0:8000::153
+  IPv6 2606:50c0:8001::153
+  IPv4 185.199.109.153
+  IPv4 185.199.108.153
+  IPv4 185.199.110.153
+
+Ping target selected by Windows: 185.199.111.153
+Packets: sent 20, received 5, lost 15 (75% loss)
+Round-trip time: minimum 120 ms, maximum 137 ms, average 126 ms
+Successful reply times: 131 ms, 137 ms, 122 ms, 120 ms, 124 ms
+
+Tracert target: 185.199.111.153
+Hop 1: 192.168.110.1, approximately 1 ms (local gateway)
+Hop 2: 10.2.47.254, approximately 1–2 ms (private network hop)
+Hops 3–12: timed out (* * *)
+Hop 13: 185.199.111.153, approximately 125–130 ms
+Trace completed; the destination responded.
+
+The raw command files should remain alongside this summary when available:
+nslookup.txt, ping.txt, tracert.txt, and https-headers.txt.

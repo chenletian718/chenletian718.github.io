@@ -3,7 +3,7 @@
 **Student:** chenle.tian  
 **GitHub repository:** `chenletian718/chenletian718.github.io`  
 **Website:** `https://chenletian718.github.io` *(replace with the final tested URL if different)*  
-**Test date/time:** `[fill in]`  
+**Test date/time:** 12 October 2026, local Windows time `[fill in]`  
 **Client:** Windows `[version]`, `[Wi-Fi/Ethernet]`, VPN `[on/off]`
 
 ## 1. Webpage implementation
@@ -20,19 +20,19 @@ The repository is configured with `.github/workflows/pages.yml`. The workflow up
 
 ## 3. Domain name and IP address (2 marks)
 
-The tested domain was `chenletian718.github.io`. On the Windows client, `nslookup`/`Resolve-DnsName` returned the following address(es): `[insert observed IPv4/IPv6 addresses]`. DNS results can change because GitHub Pages uses distributed infrastructure; therefore this result is a time-specific observation rather than a permanent mapping.
+The tested domain was `chenletian718.github.io`. The Windows client used Google Public DNS (`dns.google`, `8.8.8.8`). The response returned IPv6 addresses `2606:50c0:8002::153`, `2606:50c0:8000::153`, and `2606:50c0:8001::153`, together with IPv4 addresses `185.199.109.153`, `185.199.108.153`, and `185.199.110.153`. DNS results can change because GitHub Pages uses distributed infrastructure; therefore this result is a time-specific observation rather than a permanent mapping. Windows selected `185.199.111.153` for the later ping and tracert tests, which is consistent with GitHub's distributed address rotation.
 
 **Evidence:** `network/nslookup.txt` and Figure 3.
 
 ## 4. Ping and latency (2 marks)
 
-I ran `ping chenletian718.github.io -n 20` from `[network]`. The result was `[sent]` packets sent, `[received]` received, `[loss]%` loss, with a minimum/maximum/average of `[values]` ms. This measures ICMP round-trip time to the responding address. It is not the same as webpage load time, and ICMP may be filtered or deprioritised.
+I ran `ping chenletian718.github.io -n 20` from the Windows client. Windows selected `185.199.111.153`. The result was 20 packets sent, 5 received, and 15 lost (75% loss), with a minimum/maximum/average of 120/137/126 ms. The five successful replies were 131, 137, 122, 120, and 124 ms. This measures ICMP round-trip time to the responding address. It is not the same as webpage load time; GitHub or an intermediate network may filter or deprioritise ICMP, which explains why HTTPS can still return `200 OK` while many ping probes time out.
 
 **Evidence:** `network/ping.txt` and Figure 4.
 
 ## 5. Route analysis with tracert (2 marks)
 
-`tracert -d chenletian718.github.io` recorded `[number]` responding hops before reaching `[destination or final observation]`. The main observations were `[describe latency changes, private gateway, ISP/transit hops, and any timed-out hops]`. A `*` means that a probe did not receive a response within the timeout; it does not by itself prove that forwarding failed. The path can change with routing, load, and time.
+`tracert -d chenletian718.github.io` reached `185.199.111.153` at hop 13. Hop 1 was the local gateway `192.168.110.1` at approximately 1 ms, and hop 2 was the private address `10.2.47.254` at approximately 1–2 ms. Hops 3–12 returned `* * *` timeouts, while hop 13 returned approximately 125–130 ms and the trace completed. A `*` means that a probe did not receive a response within the timeout; it does not by itself prove that forwarding failed. The responding destination confirms that the route reached the website even though intermediate routers did not reveal their addresses. The path can change with routing, load, and time.
 
 **Evidence:** `network/tracert.txt` and Figure 5.
 
@@ -40,7 +40,7 @@ I ran `ping chenletian718.github.io -n 20` from `[network]`. The result was `[se
 
 I captured traffic on the active Windows `[Wi-Fi/Ethernet]` interface while opening the deployed HTTPS site. The capture was saved as `network/chenletian718-pages.pcapng`. The display filter used was `dns or tcp or tls or http` (and `[quic filter if used]`).
 
-The browser first resolved `chenletian718.github.io` using DNS. The capture showed a DNS `[A/AAAA]` query and a response containing `[observed address]`. The browser then established a connection to port 443. For TCP, I identified the SYN, SYN/ACK, and ACK that form the three-way handshake; the client and server ports were `[values]`. The TLS handshake included `[ClientHello/ServerHello/certificate messages observed]`, followed by encrypted application data. Because HTTPS encrypts the HTTP payload, the HTML and CSS contents were not read as plaintext in Wireshark. Browser DevTools showed the document, stylesheet, script, status `[status]`, and total load time `[time]`.
+The command-line HTTPS check returned `HTTP/1.1 200 OK`, `Content-Type: text/html`, and `Content-Length: 6085`. The response identified `GitHub.com`, included `Strict-Transport-Security`, and reported `x-github-edge-region: japaneast`. `X-Cache: HIT` and the `X-Served-By` header show that a GitHub/Fastly edge cache served this request. These headers confirm successful HTTPS delivery but do not replace the required packet capture. The browser first resolved `chenletian718.github.io` using DNS. The capture should show a DNS `[A/AAAA]` query and a response containing one of the observed addresses. The browser then established a connection to port 443. For TCP, I will identify the SYN, SYN/ACK, and ACK that form the three-way handshake; the client and server ports will be recorded from the capture. The TLS handshake should include ClientHello and ServerHello messages followed by encrypted application data. Because HTTPS encrypts the HTTP payload, the HTML and CSS contents must not be described as plaintext in Wireshark. Browser DevTools will provide the document, stylesheet, script, status, and total load time after the capture.
 
 If HTTP/3 appeared, I also filtered `quic`/`udp.port == 443` and recorded `[observation]`. Otherwise, no QUIC packets were observed in this capture. This distinction avoids confusing HTTP/2 over TLS/TCP with HTTP/3 over QUIC/UDP.
 

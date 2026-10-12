@@ -10,7 +10,7 @@
 
 I created a responsive personal webpage using semantic HTML, CSS, and a small JavaScript file. The page contains an introduction, skills and interests, project cards, and contact information. The layout uses a mobile breakpoint, a collapsible navigation menu, accessible labels, and no external runtime assets. The source files are in `Question2/site/`.
 
-The profile, interests, projects, and email address contain clearly labelled editable placeholders where personal details were not supplied. These placeholders must be replaced before final submission.
+The page presents chenle.tian as a 20-year-old male student. It describes piano (Grade 10), sketching (Grade 9), international and Chinese chess, breaking, basketball, and fitness. Since no completed personal projects were supplied, the page identifies the coursework webpage as the demonstrated project and states that further personal projects are coming soon. The contact address is `Chenle.Tian24@student.xjtlu.edu.cn`.
 
 ## 2. GitHub Pages deployment evidence
 
